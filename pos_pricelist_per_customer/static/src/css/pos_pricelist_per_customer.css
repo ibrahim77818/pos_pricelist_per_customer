@@ -1,0 +1,24 @@
+.pos .actionpad .set-partner .ppc-pricelist-badge {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.2;
+    color: #6c757d;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.pos .actionpad .set-partner .ppc-pricelist-badge.ppc-pricelist-customer {
+    color: #017e84;
+    font-weight: bold;
+}
+
+.pos .actionpad .set-partner .ppc-pricelist-badge .fa {
+    margin-inline-end: 4px;
+}
+
+.pos-receipt .ppc-receipt-pricelist {
+    margin-top: 4px;
+}

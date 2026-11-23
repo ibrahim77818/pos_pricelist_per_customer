@@ -1,0 +1,142 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_pricelist_per_customer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-23 12:00+0000\n"
+"PO-Revision-Date: 2026-11-23 12:00+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: pos_pricelist_per_customer
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_per_customer.res_config_settings_view_form_pos_pricelist_per_customer
+msgid "Apply the pricelist assigned to the selected customer; fall back to the default pricelist otherwise."
+msgstr "تطبيق قائمة الأسعار المعيّنة للعميل المحدد، والرجوع إلى قائمة الأسعار الافتراضية في غير ذلك."
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,field_description:pos_pricelist_per_customer.field_res_partner__pos_assigned_pricelist_id
+#: model:ir.model.fields,field_description:pos_pricelist_per_customer.field_res_users__pos_assigned_pricelist_id
+msgid "Assigned Pricelist (POS)"
+msgstr "قائمة الأسعار المعيّنة (نقطة البيع)"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,field_description:pos_pricelist_per_customer.field_pos_config__auto_customer_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist_per_customer.field_res_config_settings__pos_auto_customer_pricelist
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_per_customer.res_config_settings_view_form_pos_pricelist_per_customer
+msgid "Automatic Customer Pricelist"
+msgstr "قائمة أسعار العميل التلقائية"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model,name:pos_pricelist_per_customer.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model,name:pos_pricelist_per_customer.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: pos_pricelist_per_customer
+#. odoo-javascript
+#: model:ir.model.fields.selection,name:pos_pricelist_per_customer.selection__pos_order__pricelist_source__customer
+#: code:addons/pos_pricelist_per_customer/static/src/js/models.js:0
+msgid "Customer Pricelist"
+msgstr "قائمة أسعار العميل"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,help:pos_pricelist_per_customer.field_pos_order__pricelist_source
+msgid "How the pricelist of this order was chosen in the Point of Sale."
+msgstr "طريقة اختيار قائمة أسعار هذا الطلب في نقطة البيع."
+
+#. module: pos_pricelist_per_customer
+#. odoo-javascript
+#: model:ir.model.fields.selection,name:pos_pricelist_per_customer.selection__pos_order__pricelist_source__manual
+#: code:addons/pos_pricelist_per_customer/static/src/js/models.js:0
+msgid "Manually Selected"
+msgstr "محددة يدويًا"
+
+#. module: pos_pricelist_per_customer
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_per_customer.res_config_settings_view_form_pos_pricelist_per_customer
+msgid "Only pricelists available in this Point of Sale are applied. Inactive or unavailable customer pricelists fall back to the default pricelist."
+msgstr "تُطبَّق فقط قوائم الأسعار المتاحة في نقطة البيع هذه. قوائم أسعار العملاء غير النشطة أو غير المتاحة تعود إلى قائمة الأسعار الافتراضية."
+
+#. module: pos_pricelist_per_customer
+#. odoo-javascript
+#: model:ir.model.fields.selection,name:pos_pricelist_per_customer.selection__pos_order__pricelist_source__default
+#: code:addons/pos_pricelist_per_customer/static/src/js/models.js:0
+msgid "POS Default"
+msgstr "افتراضي نقطة البيع"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model,name:pos_pricelist_per_customer.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "تهيئة نقطة البيع"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model,name:pos_pricelist_per_customer.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "طلبات نقطة البيع"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model,name:pos_pricelist_per_customer.model_pos_session
+msgid "Point of Sale Session"
+msgstr "جلسة نقطة البيع"
+
+#. module: pos_pricelist_per_customer
+#. odoo-javascript
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_per_customer.view_pos_order_filter_pos_pricelist_per_customer
+#: code:addons/pos_pricelist_per_customer/static/src/xml/ActionpadWidget.xml:0
+msgid "Pricelist"
+msgstr "قائمة الأسعار"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,field_description:pos_pricelist_per_customer.field_pos_order__pricelist_source
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_per_customer.view_pos_order_filter_pos_pricelist_per_customer
+msgid "Pricelist Source"
+msgstr "مصدر قائمة الأسعار"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,help:pos_pricelist_per_customer.field_res_partner__pos_assigned_pricelist_id
+#: model:ir.model.fields,help:pos_pricelist_per_customer.field_res_users__pos_assigned_pricelist_id
+msgid "Pricelist explicitly assigned to this customer (or to its company) for the current company. Unlike the standard 'Pricelist' field, it ignores the generic fallback and country-group pricelists, and inactive pricelists."
+msgstr "قائمة الأسعار المعيّنة صراحةً لهذا العميل (أو لشركته) في الشركة الحالية. بخلاف حقل 'قائمة الأسعار' القياسي، فهو يتجاهل قائمة الأسعار الاحتياطية العامة وقوائم أسعار مجموعات الدول وقوائم الأسعار غير النشطة."
+
+#. module: pos_pricelist_per_customer
+#. odoo-javascript
+#: code:addons/pos_pricelist_per_customer/static/src/xml/OrderReceipt.xml:0
+msgid "Pricelist:"
+msgstr "قائمة الأسعار:"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,help:pos_pricelist_per_customer.field_pos_config__receipt_show_pricelist
+#: model:ir.model.fields,help:pos_pricelist_per_customer.field_res_config_settings__pos_receipt_show_pricelist
+msgid "Print the pricelist applied to the order on the POS receipt (only when Automatic Customer Pricelist is enabled)."
+msgstr "طباعة قائمة الأسعار المطبّقة على الطلب في إيصال نقطة البيع (فقط عند تفعيل قائمة أسعار العميل التلقائية)."
+
+#. module: pos_pricelist_per_customer
+#. odoo-javascript
+#: model:ir.model.fields.selection,name:pos_pricelist_per_customer.selection__pos_order__pricelist_source__refund
+#: code:addons/pos_pricelist_per_customer/static/src/js/models.js:0
+msgid "Refunded Order"
+msgstr "الطلب المسترد"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,field_description:pos_pricelist_per_customer.field_pos_config__receipt_show_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist_per_customer.field_res_config_settings__pos_receipt_show_pricelist
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_per_customer.res_config_settings_view_form_pos_pricelist_per_customer
+msgid "Show Pricelist on Receipt"
+msgstr "إظهار قائمة الأسعار في الإيصال"
+
+#. module: pos_pricelist_per_customer
+#: model:ir.model.fields,help:pos_pricelist_per_customer.field_pos_config__auto_customer_pricelist
+#: model:ir.model.fields,help:pos_pricelist_per_customer.field_res_config_settings__pos_auto_customer_pricelist
+msgid "When a customer is selected on an order, automatically apply the pricelist assigned to that customer (if it is available in this Point of Sale). Orders without a customer, or with a customer without an assigned pricelist, use the default pricelist of this Point of Sale."
+msgstr "عند اختيار عميل في الطلب، تُطبَّق قائمة الأسعار المعيّنة لهذا العميل تلقائيًا (إذا كانت متاحة في نقطة البيع هذه). الطلبات بدون عميل، أو مع عميل ليست له قائمة أسعار معيّنة، تستخدم قائمة الأسعار الافتراضية لنقطة البيع هذه."
