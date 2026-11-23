@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Odoo 20 receipt header (QWeb, served to the POS already compiled with inheritance). -->
+    <template id="pos_order_receipt_header_pricelist" inherit_id="point_of_sale.pos_order_receipt_header">
+        <xpath expr="//div[@name='cashier_name']" position="after">
+            <div class="w-100 text-center mb-2" name="ppc_pricelist"
+                 t-if="extra_data.get('ppc_pricelist_name')">
+                Pricelist: <t t-out="extra_data['ppc_pricelist_name']"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
