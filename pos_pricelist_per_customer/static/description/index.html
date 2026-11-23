@@ -1,0 +1,205 @@
+<!-- Odoo Apps description page for pos_pricelist_per_customer (Odoo 17.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Point of Sale &middot; Pricelists &middot; Refunds</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">POS Pricelist per Customer</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Select a customer and the Point of Sale applies the pricelist you assigned to them. If they have none, it uses the default pricelist. Refunds keep the pricelist of the original sale, and every order records which pricelist was used and why.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 17.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">27 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: pos_pricelist_per_customer</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">1 switch per POS</div><div style="font-size:15px;color:#555;">Off by default. While it is off, the POS behaves exactly like standard Odoo.</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">0 server calls</div><div style="font-size:15px;color:#555;">The POS picks the customer&rsquo;s pricelist in the browser, using data loaded when the session opens.</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">4 sources</div><div style="font-size:15px;color:#555;">Every order records how its pricelist was chosen: POS Default, Customer Pricelist, Manually Selected or Refunded Order.</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">27 tests</div><div style="font-size:15px;color:#555;">Configuration, customer pricelists, order persistence, refunds and loyalty rewards.</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Standard Odoo 17 already switches pricelists when a customer is selected, but you can&rsquo;t control it per Point of Sale. It also uses a fallback that applies pricelists you never assigned, and refunds can end up priced on the wrong pricelist.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 17</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>Pricelist switching applies to <b>every Point of Sale</b>, with no per-shop option.</li>
+      <li>Customers with no pricelist still get one: the customer <b>Pricelist</b> field falls back to a <b>country-group or first company pricelist</b>, and the POS applies it if it is available.</li>
+      <li>A refund takes the customer&rsquo;s <b>current</b> pricelist and fiscal position, not those of the order being refunded.</li>
+      <li>The order doesn&rsquo;t record <b>why</b> a pricelist was used: customer, cashier or default.</li>
+      <li>The receipt doesn&rsquo;t show <b>which pricelist</b> was applied.</li>
+      <li>The cashier only sees the pricelist on the <b>Pricelist</b> control button, away from the customer.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>A <b>per-POS setting</b>, <b>Automatic Customer Pricelist</b>, that is off by default.</li>
+      <li>Only pricelists <b>explicitly assigned</b> to the customer (or to their company) count. Everyone else gets the POS default.</li>
+      <li>Refunds keep the <b>original order&rsquo;s pricelist and fiscal position</b>. The server enforces this too.</li>
+      <li>Every order stores a <b>Pricelist Source</b> you can filter and group by in the backend.</li>
+      <li>Optionally print <b>Pricelist: &hellip;</b> on the receipt.</li>
+      <li>The applied pricelist shows <b>under the customer&rsquo;s name</b> and is highlighted when it is the customer&rsquo;s own.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, using standard Odoo pricelists.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Enable</div><div style="font-size:14px;color:#555;">Turn on <b>Flexible Pricelists</b>, then <b>Automatic Customer Pricelist</b> for the Point of Sale.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Assign</div><div style="font-size:14px;color:#555;">Set a <b>Pricelist</b> on the customer (or their company) and make it <b>Available</b> in the POS.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Sell</div><div style="font-size:14px;color:#555;">Select the customer. Prices and promotions update instantly. Remove the customer and the default pricelist comes back.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Trace</div><div style="font-size:14px;color:#555;">The order is saved with its <b>Pricelist</b> and <b>Pricelist Source</b>, and refunds keep the original pricelist.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">The screenshots come from an Odoo 16 database with prices in SAR. The POS has three pricelists: <b>Public Pricelist</b> (default), <b>VIP Members</b> (&minus;10%) and <b>Trade Partners &minus;12%</b>, plus a 10% order promotion.</p>
+
+<div style="margin:30px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Where to find everything</h3>
+  <ul style="font-size:15px;line-height:1.8;color:#555;margin:0;padding-left:20px;">
+    <li><b>Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Pricing</b>: <b>Automatic Customer Pricelist</b> and <b>Show Pricelist on Receipt</b> (shown when <b>Flexible Pricelists</b> is on).</li>
+    <li><b>Contacts &rsaquo; customer &rsaquo; Sales &amp; Purchase &rsaquo; Pricelist</b>: the standard field this module reads.</li>
+    <li><b>Point of Sale &rsaquo; Orders &rsaquo; Orders</b>: optional <b>Pricelist</b> and <b>Pricelist Source</b> columns, and <b>Group By</b> for both.</li>
+    <li>Order form &rsaquo; <b>Extra Info</b> tab: <b>Pricelist</b> and <b>Pricelist Source</b>.</li>
+  </ul>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">One switch per Point of Sale</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Automatic Customer Pricelist</b> sits next to the POS pricelist settings. Enable it on the shops that should price by customer and leave it off elsewhere. <b>Show Pricelist on Receipt</b> is on by default. Like the other pricelist settings, it is locked while a session is open.</p>
+  <img src="ppc_01_settings.png" alt="Point of Sale settings, Pricing section, with Automatic Customer Pricelist and Show Pricelist on Receipt" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Every order starts on the POS default</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">A new order without a customer uses the default pricelist of the Point of Sale. The pricelist in use is shown right under <b>Customer</b>, so the cashier always knows what the prices are based on.</p>
+  <img src="ppc_02_default_order.png" alt="POS order without customer priced on Public Pricelist, pricelist shown under the Customer button" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Select the customer, get their prices</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Selecting <b>PPC Test VIP</b> applies <b>VIP Members</b> straight away. The order lines, the product grid and the promotion are all recalculated, and the pricelist under the customer turns teal to show it is the customer&rsquo;s own. This works from the customer list, the payment screen and a customer barcode scan.</p>
+  <img src="ppc_03_customer_pricelist.png" alt="POS order after selecting a VIP customer: VIP Members pricelist applied to lines and product grid" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Same order, three customers</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The same three products for a customer with no assigned pricelist, a VIP customer and a trade customer. Standard Odoo would give the first customer the fallback <b>Default SAR pricelist</b>. This module keeps the POS default.</p>
+  <img src="ppc_04_three_customers.png" alt="Three POS order panels side by side: customer without pricelist on Public Pricelist, VIP customer on VIP Members, trade customer on Trade Partners" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 16px;">Totals include the 10% order promotion, which is recalculated after each pricelist change.</div>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;">
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Situation</th><th style="text-align:left;padding:10px 14px;">Pricelist applied</th></tr></thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">No customer, or customer removed</td><td style="padding:10px 14px;">POS default</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Customer with an assigned pricelist that is available in the POS</td><td style="padding:10px 14px;">Customer&rsquo;s pricelist</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Contact whose company has an assigned pricelist</td><td style="padding:10px 14px;">Company&rsquo;s pricelist</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">No assigned pricelist (fallback only)</td><td style="padding:10px 14px;">POS default</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Assigned pricelist archived, from another company, or not available in this POS</td><td style="padding:10px 14px;">POS default</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Cashier picks one with the <b>Pricelist</b> button</td><td style="padding:10px 14px;">The cashier&rsquo;s choice, until the customer changes</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">The pricelist on the receipt</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>Show Pricelist on Receipt</b> enabled, the receipt prints <b>Pricelist: Trade Partners -12% (SAR)</b> under the cashier name, so the customer can see why the prices differ from the shelf.</p>
+  <img src="ppc_05_receipt.png" alt="POS receipt showing the line Pricelist: Trade Partners -12% (SAR)" style="width:100%;max-width:460px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Refunds keep the original pricelist</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">After the sale, this customer was moved from Trade Partners to VIP Members. The refund made with <b>Refund</b> still uses <b>Trade Partners -12%</b> and the original fiscal position, and refunds the amounts actually paid. The server applies the same rule when the order is synced, even if the original pricelist is no longer offered in the POS.</p>
+  <img src="ppc_06_refund.png" alt="POS refund order using the Trade Partners pricelist of the original sale" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Pricelist and source on every order</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">In <b>Point of Sale &rsaquo; Orders &rsaquo; Orders</b>, add the optional <b>Pricelist</b> and <b>Pricelist Source</b> columns, or group by either one, to check how your shops are pricing. The order form shows both fields in the <b>Extra Info</b> tab. Refunds created from the backend with <b>Return Products</b> are marked <b>Refunded Order</b> too.</p>
+  <img src="ppc_07_orders_list.png" alt="POS orders list with Pricelist and Pricelist Source columns" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppc_08_order_form.png" alt="POS refund order form, Extra Info tab, Pricelist Trade Partners and Pricelist Source Refunded Order" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== PRICELIST SOURCE ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Pricelist Source values</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Stored on each POS order while <b>Automatic Customer Pricelist</b> is enabled.</p>
+<div style="font-size:15px;line-height:1.6;color:#3a3a42;">
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">POS Default</span> no customer, or the customer has no usable pricelist</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Customer Pricelist</span> the customer&rsquo;s (or their company&rsquo;s) assigned pricelist was applied</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Manually Selected</span> the cashier chose a pricelist with the <b>Pricelist</b> button</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#f6f4f6;color:#714B67;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Refunded Order</span> a refund that keeps the pricelist of the order it refunds</div>
+</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> a pricelist counts as the customer&rsquo;s only if it was set on the customer or their company for the current company, is active, and belongs to that company (or is shared). Example: a customer with no pricelist set gets the fallback <b>Default SAR pricelist</b> in standard Odoo. Here they get the POS default, and the order is stored as <b>POS Default</b>.</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Each of these is covered by the module, including with pos_loyalty installed.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Manual line prices</b><br/><span style="color:#555;">A price set with <b>Price</b> on the numpad is kept when the pricelist changes. The other lines are repriced.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Loyalty and promotions</b><br/><span style="color:#555;">Reward lines are never repriced from the pricelist. pos_loyalty recalculates them once after each switch, with no loops.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Mixed refund and sale</b><br/><span style="color:#555;">If refund lines are added to an order that already has new sales, the pricelist stays as it is, so the new lines are not repriced.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Original pricelist no longer in the POS</b><br/><span style="color:#555;">Refund prices stay as they were, and the server stores the original order&rsquo;s pricelist when the order syncs.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Archived or foreign pricelists</b><br/><span style="color:#555;">Archived pricelists, and pricelists belonging to another company, are ignored. The order uses the POS default.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Company contacts</b><br/><span style="color:#555;">A contact with no pricelist of their own uses the pricelist assigned to their company.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Page reload and offline</b><br/><span style="color:#555;">Unpaid orders keep their pricelist and source after a reload and are not recalculated against changed customer data.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Customer edited in the POS</b><br/><span style="color:#555;">When the customer is saved and reloaded from the POS, the assigned pricelist is reloaded with them.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Invalid data from a client</b><br/><span style="color:#555;">An unknown source value is dropped. A deleted pricelist falls back to the POS default on the server.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">The module adds no new groups and relies on the standard Point of Sale and pricelist rights.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;width:240px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees / does</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">POS User</td><td style="padding:10px 14px;">Uses automatic pricelists in the POS. The customer&rsquo;s assigned pricelist comes with the customer data of the session.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">POS Administrator</td><td style="padding:10px 14px;">Turns <b>Automatic Customer Pricelist</b> and <b>Show Pricelist on Receipt</b> on or off for each Point of Sale.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Pricelists group</td><td style="padding:10px 14px;"><b>Pricelist Source</b> on the order form, the optional list columns and the Group By options are shown to users with pricelist access.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Only the pricelist assigned for the current company counts, and only if it belongs to that company or is shared.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:12px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">17.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>point_of_sale</code> (works with <code>pos_loyalty</code> when it is installed)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;color:#777;">Settings</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Pricing</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">Models</td><td style="padding:10px 14px;"><code>pos.config</code> (2 settings), <code>res.partner</code> (computed <b>Assigned Pricelist (POS)</b>, one query per batch), <code>pos.session</code> (customer data loaded into the POS), <code>pos.order</code> (<b>Pricelist Source</b>, refund rules)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;color:#777;">POS frontend</td><td style="padding:10px 14px;">Extends <code>PosStore</code>, <code>Order</code> and <code>TicketScreen</code> (OWL <code>patch()</code>); adds a pricelist label under the customer button and a receipt line</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">Automated tests</td><td style="padding:10px 14px;">27 <code>TransactionCase</code> tests: defaults and settings, session loader, explicit vs fallback pricelists, archived, foreign and unavailable pricelists, order persistence, manual prices, POS, mixed and backend refunds, loyalty reward lines</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;color:#777;">Languages</td><td style="padding:10px 14px;">English, Arabic (<code>i18n/ar.po</code>: settings, fields, POS labels, receipt)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;  ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>

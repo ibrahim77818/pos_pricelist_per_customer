@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_pricelist_per_customer.ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('set-partner')]" position="inside">
+            <t t-set="ppcOrder" t-value="pos.get_order()"/>
+            <!-- hidden on the ticket (refund) screen, where the partner shown is the selected past order's -->
+            <div t-if="props.actionType !== 'refund' and !props.actionToTrigger and pos.isAutoCustomerPricelistEnabled() and ppcOrder and ppcOrder.pricelist"
+                 class="ppc-pricelist-badge"
+                 t-att-class="{'ppc-pricelist-customer': ppcOrder.pricelist_source === 'customer'}"
+                 t-att-title="ppcOrder.getPricelistSourceLabel()">
+                <i class="fa fa-tags" role="img" aria-label="Pricelist" title="Pricelist"/>
+                <span class="ppc-pricelist-name" t-esc="ppcOrder.pricelist.display_name"/>
+            </div>
+        </xpath>
+    </t>
+</templates>
