@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_pos_form_pos_pricelist_per_customer" model="ir.ui.view">
+        <field name="name">pos.order.form.inherit.pos_pricelist_per_customer</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pricelist_id']" position="after">
+                <field name="pricelist_source" groups="product.group_product_pricelist"
+                       invisible="not pricelist_source"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_tree_pos_pricelist_per_customer" model="ir.ui.view">
+        <field name="name">pos.order.tree.inherit.pos_pricelist_per_customer</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="pricelist_id" optional="hide" groups="product.group_product_pricelist"/>
+                <field name="pricelist_source" optional="hide" groups="product.group_product_pricelist"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_filter_pos_pricelist_per_customer" model="ir.ui.view">
+        <field name="name">pos.order.search.inherit.pos_pricelist_per_customer</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='customer']" position="after">
+                <filter string="Pricelist" name="group_by_pricelist" domain="[]"
+                        context="{'group_by': 'pricelist_id'}" groups="product.group_product_pricelist"/>
+                <filter string="Pricelist Source" name="group_by_pricelist_source" domain="[]"
+                        context="{'group_by': 'pricelist_source'}" groups="product.group_product_pricelist"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

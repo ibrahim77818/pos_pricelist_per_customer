@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- Since Odoo 18 the customer button is its own component (order screen only). -->
+    <t t-name="pos_pricelist_per_customer.SelectPartnerButton" t-inherit="point_of_sale.SelectPartnerButton" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('set-partner')]" position="inside">
+            <t t-set="ppcOrder" t-value="pos.get_order()"/>
+            <!-- only when the button shows the current order's customer: never next to another
+                 order's customer (the refund-screen bug fixed in 16.0) -->
+            <div t-if="ppcOrder and ppcOrder._ppcEnabled() and ppcOrder.pricelist_id and props.partner?.id === ppcOrder.get_partner()?.id"
+                 class="ppc-pricelist-badge"
+                 t-att-class="{'ppc-pricelist-customer': ppcOrder.pricelist_source === 'customer'}"
+                 t-att-title="ppcOrder.getPricelistSourceLabel()">
+                <i class="fa fa-tags" role="img" aria-label="Pricelist" title="Pricelist"/>
+                <span class="ppc-pricelist-name" t-esc="ppcOrder.pricelist_id.display_name"/>
+            </div>
+        </xpath>
+    </t>
+</templates>
