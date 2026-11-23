@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- Since Odoo 19 the receipt header receives the order itself. -->
+    <t t-name="pos_pricelist_per_customer.ReceiptHeader" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('cashier')]" position="after">
+            <div t-if="order.ppcShowPricelistOnReceipt" class="ppc-receipt-pricelist">
+                Pricelist: <t t-esc="order.pricelist_id.display_name"/>
+            </div>
+        </xpath>
+    </t>
+</templates>
